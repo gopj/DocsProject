@@ -17,7 +17,7 @@ class Login extends My_Controller {
 				$user = array(
 					'idUser' => $this->user['idUser'],
 					'user' => $this->user['userName'],
-					'idType' => $this->user['idTipo_usuario']
+					'type' => $this->user['idType']
 				);
 
 				$this->session->set_userdata('user', $user);
