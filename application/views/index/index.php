@@ -3,4 +3,4 @@
   <p>Docs!</p>
 </blockquote>
 
-<?=anchor("login/test", "Controller Login/Test Ajax", "data-toggle='login' class='btn btn-inverse'")?>
+<?=anchor("login/index", "Controller Login/Index Ajax", "data-toggle='modal-login' class='btn btn-inverse'")?>

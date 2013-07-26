@@ -9,7 +9,7 @@
 	<?php echo link_tag( 'css/bootmetro-icons.css' ) ?>
 	<?php echo link_tag( 'css/datepicker.css' ) ?>
 	<?php echo link_tag( 'css/bootmetro-responsive.css' ) ?>
-	<?php echo link_tag( 'css/css/bootmetro-ui-light.css' ) ?>
+	<?php echo link_tag( 'css/bootmetro-ui-light.css' ) ?>
 	
 	<script src="<?=base_url('js/bootstrap.js')?>"> </script>
 	<script src="<?=base_url('js/jquery-1.10.0.min.js')?>"> </script>
@@ -21,7 +21,7 @@
 	
 	<script type="text/javascript">
 	$(function() {
-		$('[data-toggle="login"]').click(function(e) {
+		$('[data-toggle="modal-login"]').click(function(e) {
 			e.preventDefault();
 
 			var href = $(this).attr('href'); //URL donde se encuentra el login
@@ -32,7 +32,9 @@
 				.modal('open');
 			} else {
 				$.get(href, function(data) {
-					$(data).modal();
+					$(data)
+					.removeData('modal')
+					.modal();
 				});
 			}
 		});
@@ -60,7 +62,7 @@
 
 				<ul class="nav pull-right">
 					<li class="divider-vertical"></li>
-					<li><a data-toggle="login" href="login/index"> Iniciar Sesion</a></li>
+					<li><a data-toggle="modal-login" href="<?=base_url()?>login/index"> Iniciar Sesion</a></li>
 				</ul>
 			</div><!-- /.nav-collapse -->
 		</div>

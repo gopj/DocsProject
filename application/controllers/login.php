@@ -41,10 +41,6 @@ class Login extends My_Controller {
 		$this->load->view('login/index');
 	}
 
-	public function test(){
-		$this->load->view('login/test');
-	}
-
 	public function logout(){
 		$this->session->sess_destroy();
 		redirect("index");
