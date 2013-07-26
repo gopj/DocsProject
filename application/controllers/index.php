@@ -2,15 +2,19 @@
 
 class Index extends My_Controller {
 
-	public function __construct(){
+	function __construct() {
 		parent::__construct();
+		$this->setLayout('default');
+
 	}
 
-	public function index(){
+	public function index($id = true){
 
-		echo "hola";
-
-		//$this->load->view('index/index', $data);
+		$this->load->view('index/index');
 	}
 
+	
 }
+
+/* End of file index.php */
+/* Location: ./application/controllers/index.php */
