@@ -10,18 +10,43 @@
 <html>
 <head>
 	<meta http-equiv="Content-type" content="text/html"; charset="utf-8" />
-	<title>Botanitas</title>
+	<title>Docs - Administrador</title>
 
-	<?php echo link_tag( 'css/bootstrap.css' ) ?>
-	<?php echo link_tag( 'css/bootstrap.min.css' ) ?>
-	<?php echo link_tag( 'css/prettify.css' ) ?>
+	<?php echo link_tag( 'css/bootmetro.css' ) ?>
+	<?php echo link_tag( 'css/bootmetro-icons.css' ) ?>
+	<?php echo link_tag( 'css/datepicker.css' ) ?>
+	<?php echo link_tag( 'css/bootmetro-responsive.css' ) ?>
+	<?php echo link_tag( 'css/bootmetro-ui-light.css' ) ?>
 	
-	<?php echo link_tag( 'css/dataTables/jquery.dataTables.css' ) ?>
-
-
-	<script src="<?=base_url('js/jquery-1.9.0.js')?>"> </script>
 	<script src="<?=base_url('js/bootstrap.js')?>"> </script>
-	<script src="<?=base_url('js/jquery.dataTables.js')?>"> </script>
+	<script src="<?=base_url('js/jquery-1.10.0.min.js')?>"> </script>
+	
+	<script src="<?=base_url('js/min/bootstrap.min.js')?>"> </script>
+	<script src="<?=base_url('js/bootmetro-panorama.js')?>"> </script>
+	<script src="<?=base_url('js/bootmetro-pivot.js')?>"> </script>
+	<script src="<?=base_url('js/bootmetro-charms.js')?>"> </script>
+	
+	<script type="text/javascript">
+		$(function() {
+			$('[data-toggle="modal-login"]').click(function(e) {
+				e.preventDefault();
+
+				var href = $(this).attr('href'); //URL donde se encuentra el login
+
+				if (href.indexOf('#') == 0) {
+					$(href)
+					.removeData('modal')
+					.modal('open');
+				} else {
+					$.get(href, function(data) {
+						$(data)
+						.removeData('modal')
+						.modal();
+					});
+				}
+			});
+		});
+	</script>
 </head>
 <body>
 <div class="navbar navbar-fixed-top navbar-inverse" style="position: static;">

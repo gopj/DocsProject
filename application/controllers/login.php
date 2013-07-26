@@ -17,7 +17,7 @@ class Login extends My_Controller {
 				$user = array(
 					'idUser' => $this->user['idUser'],
 					'user' => $this->user['userName'],
-					'type' => $this->user['idType']
+					'profile' => $this->user['idProfile']
 				);
 
 				$this->session->set_userdata('user', $user);
@@ -37,6 +37,12 @@ class Login extends My_Controller {
 
 			}
 		}
+
+		echo "<pre>";
+		print_r( $this->session->userdata);
+		//print($this->session->userdata['user']['perfil']);
+		echo "</pre>";
+
 
 		$this->load->view('login/index');
 	}

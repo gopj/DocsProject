@@ -20,26 +20,26 @@
 	<script src="<?=base_url('js/bootmetro-charms.js')?>"> </script>
 	
 	<script type="text/javascript">
-	$(function() {
-		$('[data-toggle="modal-login"]').click(function(e) {
-			e.preventDefault();
+		$(function() {
+			$('[data-toggle="modal-login"]').click(function(e) {
+				e.preventDefault();
 
-			var href = $(this).attr('href'); //URL donde se encuentra el login
+				var href = $(this).attr('href'); //URL donde se encuentra el login
 
-			if (href.indexOf('#') == 0) {
-				$(href)
-				.removeData('modal')
-				.modal('open');
-			} else {
-				$.get(href, function(data) {
-					$(data)
+				if (href.indexOf('#') == 0) {
+					$(href)
 					.removeData('modal')
-					.modal();
-				});
-			}
+					.modal('open');
+				} else {
+					$.get(href, function(data) {
+						$(data)
+						.removeData('modal')
+						.modal();
+					});
+				}
+			});
 		});
-	});
-</script>
+	</script>
 
 </head>
 <body>

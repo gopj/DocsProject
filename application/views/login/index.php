@@ -4,7 +4,7 @@
 		<h3>Login</h3>
 	</div>
 	<div class="modal-body">
-		<form class="form-horizontal">
+		<?php echo form_open("login/", array("class" => "form-horizontal")); ?>
 			<div class="control-group">
 				<label class="control-label" for="inputUser">Usuario </label>
 				<div class="controls">
@@ -24,10 +24,10 @@
 					</label>
 				</div>
 			</div>
-		</form>
 	</div>
 	<div class="modal-footer">
 		<button type="button" class="btn" data-dismiss="modal" aria-hidden="true"> Cerrar</button>
-		<button type="submit" class="btn btn-success">Iniciar Sesion</button>
+		<?php echo form_submit("login", "Entrar", 'class="btn btn-primary"'); ?>
 	</div>
+	<?php echo form_close(); ?>	
 </div>
