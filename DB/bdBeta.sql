@@ -27,6 +27,8 @@ DROP TABLE IF EXISTS `files`;
 CREATE TABLE `files` (
   `idFile` int(11) NOT NULL AUTO_INCREMENT,
   `fileName` varchar(45) COLLATE utf8_bin NOT NULL,
+  `date` date NOT NULL,
+  `typeFile` varchar(45) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`idFile`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -41,27 +43,27 @@ LOCK TABLES `files` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `types`
+-- Table structure for table `profiles`
 --
 
-DROP TABLE IF EXISTS `types`;
+DROP TABLE IF EXISTS `profiles`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `types` (
-  `idType` int(11) NOT NULL AUTO_INCREMENT,
-  `txtType` varchar(45) COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`idType`)
+CREATE TABLE `profiles` (
+  `idProfile` int(11) NOT NULL AUTO_INCREMENT,
+  `txtProfile` varchar(45) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`idProfile`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `types`
+-- Dumping data for table `profiles`
 --
 
-LOCK TABLES `types` WRITE;
-/*!40000 ALTER TABLE `types` DISABLE KEYS */;
-INSERT INTO `types` VALUES (1,'Admin'),(2,'User');
-/*!40000 ALTER TABLE `types` ENABLE KEYS */;
+LOCK TABLES `profiles` WRITE;
+/*!40000 ALTER TABLE `profiles` DISABLE KEYS */;
+INSERT INTO `profiles` VALUES (1,'Admin'),(2,'User');
+/*!40000 ALTER TABLE `profiles` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -77,7 +79,7 @@ CREATE TABLE `users` (
   `lastName` varchar(45) COLLATE utf8_bin DEFAULT NULL,
   `userName` varchar(45) COLLATE utf8_bin DEFAULT NULL,
   `password` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `idType` int(11) DEFAULT NULL,
+  `idProfile` int(11) NOT NULL,
   PRIMARY KEY (`idUser`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -88,7 +90,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Chuy','Gonzalez','gopj','1234',1),(2,'Figo','Gonzalez','figo','1234',2);
+INSERT INTO `users` VALUES (1,'Chuy','Gonzalez','gopj','81dc9bdb52d04dc20036dbd8313ed055',1),(2,'Figo','Gonzalez','figo','81dc9bdb52d04dc20036dbd8313ed055',2);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -101,4 +103,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-07-25 14:54:13
+-- Dump completed on 2013-07-26 16:44:47
