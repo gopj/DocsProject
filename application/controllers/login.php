@@ -4,7 +4,7 @@ class Login extends My_Controller {
 
 	public function __construct(){
 		parent::__construct();
-		$this->setLayout('blank');
+		$this->setLayout('default');
 	}
 	
 	public function index(){
@@ -12,7 +12,7 @@ class Login extends My_Controller {
 		if($_SERVER['REQUEST_METHOD'] == "POST"){
 			$this->load->model("User_model", "user");
 
-			if($this->user->identificar($this->input->post('usuario'), $this->input->post('clave'))){
+			if($this->user->identificar($this->input->post('user'), $this->input->post('password'))){
 				// Preparar información para la sesión
 				$user = array(
 					'idUser' => $this->user['idUser'],
@@ -28,9 +28,8 @@ class Login extends My_Controller {
 						break;
 					case '2':
 						redirect("user/index/");
-						break;					
+						break;	
 				}
-	
 
 			} else {
 				// Mostrar motivo de error
@@ -38,13 +37,9 @@ class Login extends My_Controller {
 			}
 		}
 
-		echo "<pre>";
-		print_r( $this->session->userdata);
-		//print($this->session->userdata['user']['perfil']);
-		echo "</pre>";
-
 
 		$this->load->view('login/index');
+		
 	}
 
 	public function logout(){

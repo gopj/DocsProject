@@ -10,6 +10,7 @@
 	<?php echo link_tag( 'css/datepicker.css' ) ?>
 	<?php echo link_tag( 'css/bootmetro-responsive.css' ) ?>
 	<?php echo link_tag( 'css/bootmetro-ui-light.css' ) ?>
+	<?php echo link_tag( 'css/form-style.css' ) ?>
 	
 	<script src="<?=base_url('js/bootstrap.js')?>"> </script>
 	<script src="<?=base_url('js/jquery-1.10.0.min.js')?>"> </script>
@@ -62,7 +63,7 @@
 
 				<ul class="nav pull-right">
 					<li class="divider-vertical"></li>
-					<li><a data-toggle="modal-login" href="<?=base_url()?>login/index"> Iniciar Sesion</a></li>
+					<li><a href="<?=base_url()?>login/index"> Iniciar Sesion</a></li>
 				</ul>
 			</div><!-- /.nav-collapse -->
 		</div>
