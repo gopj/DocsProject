@@ -3,7 +3,7 @@
 	print_r($this->session->userdata('user'));
 	echo "</pre>"; */
 
-	$user = $this->session->userdata['user']['nombre'];
+	$user = $this->session->userdata['user']['name'] . " ". $this->session->userdata['user']['lastName'];
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -58,7 +58,7 @@
 				<span class="icon-bar"></span>
 			</a>
 
-			<a class="brand" href="<?=base_url();?>admin">Botanitas</a>
+			<a class="brand" href="<?=base_url();?>admin">Docs Project</a>
 			<div class="nav-collapse collapse navbar-inverse-collapse">
 
 				<ul class="nav">

@@ -12,16 +12,16 @@ class User_model extends My_Model {
 
 	}
 
-	public function identificar($userName, $password){
+	public function identificar($user, $password){
 
 		$identificar = FALSE;
 
 		// Limpiamos los valores de posible inyeccion XSS
-		$nombre_usuario = $this->security->xss_clean($userName);
-		$clave = $this->security->xss_clean($password);
+		$user = $this->security->xss_clean($user);
+		$password = $this->security->xss_clean($password);
 
 		// Preparar la consulta
-		$this->db->where('userName', $userName);
+		$this->db->where('userName', $user);
 		$this->db->where('password', MD5($password));
 		$this->db->join('profiles', "users.idProfile = profiles.idProfile");
 		$this->db->limit(1);
@@ -38,6 +38,24 @@ class User_model extends My_Model {
 		}
 
 		return $identificar;
+	}
+
+	public function getUsers(){
+
+		$query = $this->db->query("
+					SELECT 
+						u.idUser, p.txtProfile, u.userName, u.name, u.lastName
+					FROM 
+						users as u, profiles as p
+					WHERE 
+						u.idProfile = p.idProfile;
+				");
+
+		if ($query->num_rows() > 0){
+			return $query;
+		} else {
+			return false;
+		}
 	}
 
 }

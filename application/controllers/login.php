@@ -14,15 +14,20 @@ class Login extends My_Controller {
 
 			if($this->user->identificar($this->input->post('user'), $this->input->post('password'))){
 				// Preparar información para la sesión
+				
+				echo "identificar <br />";
+
 				$user = array(
 					'idUser' => $this->user['idUser'],
 					'user' => $this->user['userName'],
-					'profile' => $this->user['idProfile']
+					'profile' => $this->user['idProfile'],
+					'name' => $this->user['name'],
+					'lastName' => $this->user['lastName']
 				);
 
 				$this->session->set_userdata('user', $user);
 				
-				switch ($this->session->userdata['user']['perfil']){
+				switch ($this->session->userdata['user']['profile']){
 					case '1':
 						redirect("admin/index/");
 						break;
@@ -36,6 +41,11 @@ class Login extends My_Controller {
 
 			}
 		}
+
+		echo "<pre>";
+		print_r( $this->session->userdata);
+		//print($this->session->userdata['user']['perfil']);
+		echo "</pre>";
 
 
 		$this->load->view('login/index');

@@ -3,13 +3,13 @@
 		<div class="control-group">
 			<label class="control-label" for="inputUser">Usuario </label>
 			<div class="controls">
-				<input type="text" id="inputUser" placeholder="Usuario">
+				<input type="text" id="inputUser" placeholder="Usuario" name="user">
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label" for="inputPassword">Contraseña </label>
 			<div class="controls">
-				<input type="password" id="inputPassword" placeholder="&#8226&#8226&#8226&#8226&#8226&#8226">
+				<input type="password" id="inputPassword" placeholder="&#8226&#8226&#8226&#8226&#8226&#8226" name="password">
 			</div>
 		</div>
 		<div class="control-group">

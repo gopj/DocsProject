@@ -12,13 +12,13 @@ class Usuarios extends My_Controller {
 
 	public function index($pag = null){
 		
-		if($this->session->userdata['user']['perfil'] == FALSE || $this->session->userdata['user']['perfil'] != '1'){
+		if($this->session->userdata['user']['profile'] == FALSE || $this->session->userdata['user']['perfil'] != '1'){
 			redirect(base_url().'login');
 		}
 		
 		$data['users'] = $this->user->getUsers();	
 
-		$this->load->view('usuarios/index', $data);
+		$this->load->view('users/index', $data);
 	}
 
 	public function create($id = null){
@@ -33,15 +33,15 @@ class Usuarios extends My_Controller {
 			$user['status'] = 1;
 			if ( $user->save() ){
 
-				redirect('admin/usuarios');
+				redirect('admin/users');
 
 			}
 		}
 
-		$perfil = new Perfil_model();
+		$profile = new Profile_model();
 
-		$data['perfil'] = $this->perfil->getByIdAsArray($id);
-		$data['perfiles'] = $this->perfil->getAllToSelect();
+		$data['profile'] = $this->profile->getByIdAsArray($id);
+		$data['profiles'] = $this->profile->getAllToSelect();
 
 		$this->load->view("usuarios/create", $data);
 	}
@@ -49,7 +49,7 @@ class Usuarios extends My_Controller {
 	public function update($id = null){
 		$data['user'] = $this->user->getByIdAsArray($id);
 		if (is_null($id)){
-			redirect("admin/productos");
+			redirect("admin/users");
 		}
 
 
@@ -65,27 +65,26 @@ class Usuarios extends My_Controller {
 
 			if ( $user->save() ){
 
-				redirect('admin/usuarios');
+				redirect('admin/users');
 
 			}
 		}
 
-		$perfil = new Perfil_model();
+		$profile = new Profile_model();
 
-		$data['perfil'] = $this->perfil->getByIdAsArray($id);
-		$data['perfiles'] = $this->perfil->getAllToSelect();
+		$data['profile'] = $this->perfil->getByIdAsArray($id);
+		$data['profile'] = $this->perfil->getAllToSelect();
 
-		$this->load->view("usuarios/update", $data);
+		$this->load->view("users/update", $data);
 	}
 
 	public function delete($id = null){
-		$usr = new User_model();
+		$user = new User_model();
 
-		$usr['idUsuario'] = $id;
-		$usr['status'] = 0;
+		$user['idUser'] = $id;
 
-		if ( $usr->save() ){
-			redirect('admin/usuarios');
+		if ( $usr->delete() ){
+			redirect('admin/users');
 		}
 	}		
 }
