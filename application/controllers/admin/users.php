@@ -12,7 +12,7 @@ class Users extends My_Controller {
 
 	public function index($pag = null){
 		
-		if($this->session->userdata['user']['profile'] == FALSE || $this->session->userdata['user']['perfil'] != '1'){
+		if($this->session->userdata['user']['profile'] == FALSE || $this->session->userdata['user']['profile'] != '1'){
 			redirect(base_url().'login');
 		}
 		

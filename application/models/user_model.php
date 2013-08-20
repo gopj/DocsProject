@@ -44,7 +44,7 @@ class User_model extends My_Model {
 
 		$query = $this->db->query("
 					SELECT 
-						u.idUser, p.txtProfile, u.userName, u.name, u.lastName
+						u.*, p.txtProfile
 					FROM 
 						users as u, profiles as p
 					WHERE 

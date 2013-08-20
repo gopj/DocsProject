@@ -25,29 +25,8 @@
 	<script src="<?=base_url('js/bootmetro-panorama.js')?>"> </script>
 	<script src="<?=base_url('js/bootmetro-pivot.js')?>"> </script>
 	<script src="<?=base_url('js/bootmetro-charms.js')?>"> </script>
-	
-	<script type="text/javascript">
-		$(function() {
-			$('[data-toggle="modal-login"]').click(function(e) {
-				e.preventDefault();
-
-				var href = $(this).attr('href'); //URL donde se encuentra el login
-
-				if (href.indexOf('#') == 0) {
-					$(href)
-					.removeData('modal')
-					.modal('open');
-				} else {
-					$.get(href, function(data) {
-						$(data)
-						.removeData('modal')
-						.modal();
-					});
-				}
-			});
-		});
-	</script>
 </head>
+
 <body>
 <div class="navbar navbar-fixed-top navbar-inverse" style="position: static;">
 	<div class="navbar-inner">
@@ -71,14 +50,10 @@
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Admin <b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li class="nav-header">Administraci&oacute;n de usuarios</li>
-							<li><a href="<?=base_url();?>admin/usuarios"> Usuarios </a></li>
+							<li><a href="<?=base_url();?>admin/users"> Usuarios </a></li>
 							<li class="divider"></li>
 							<li class="nav-header">Agregar</li>
-							<li><a href="<?=base_url();?>admin/productos"> Productos </a></li>
-							<li><a href="<?=base_url();?>admin/clientes"> Clientes </a></li>
-							<li><a href="<?=base_url();?>admin/municipios"> Municipios </a></li>
-							<li><a href="<?=base_url();?>admin/rutas"> Rutas </a></li>
-							<li><a href="<?=base_url();?>admin/roles"> Roles </a></li>
+							<li><a href="<?=base_url();?>admin/productos"> Archivos </a></li>
 						</ul>
 					</li>
 					<li class="divider-vertical"></li>
@@ -94,7 +69,9 @@
 		</div>
 	</div><!-- /navbar-inner -->
 </div><!-- /navbar -->
-
-	<?php echo $output; ?>
+<br />
+ 	<div class="container">
+		<?php echo $output; ?>
+	</div>
 </body>
 </html>
